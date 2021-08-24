@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
         switch sender {
         case userNameAlert:
-            showAlert(with: "Oops\(emoji)", and: "Your username is User ")
+            showAlert(with: "Oops\(emoji)", and: "Your username is User")
         case passwordAlert:
             showAlert(with: "Oops\(emoji)", and: "Your password is Pass")
         default:
@@ -64,9 +64,7 @@ extension LoginViewController {
     }
     
     private func checkUser(in usersList: [String:String], with login: String, and pass: String) -> Bool {
-        let auth: Bool
         guard let currentUserPass = usersList[login] else { return false }
-        auth = currentUserPass == pass ? true : false
-        return auth
+        return currentUserPass == pass ? true : false
     }
 }
