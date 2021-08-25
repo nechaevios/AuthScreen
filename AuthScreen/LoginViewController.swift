@@ -39,7 +39,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         case passwordAlert:
             showAlert(with: "Oops\(emoji)", and: "Your password is Pass")
         default:
-            if checkUser(in: users, login: userNameTextField.text ?? "", pass: passwordTextField.text ?? "") {
+            if checkUser(
+                in: users,
+                login: userNameTextField.text ?? "",
+                pass: passwordTextField.text ?? ""
+            ) {
                 self.performSegue(withIdentifier: "login", sender: self)
             } else {
                 passwordTextField.text = ""
