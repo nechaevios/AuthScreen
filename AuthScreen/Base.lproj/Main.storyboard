@@ -102,7 +102,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Log out"/>
                                         <connections>
-                                            <action selector="logOutPressed" destination="lnY-BN-gOD" eventType="touchUpInside" id="yvL-0l-zuC"/>
+                                            <segue destination="lnY-BN-gOD" kind="unwind" unwindAction="unwindFor:" id="yhw-Ho-p21"/>
                                         </connections>
                                     </button>
                                 </subviews>

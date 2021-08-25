@@ -20,11 +20,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     
     private let emoji = String(UnicodeScalar(0x2757) ?? "!")
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         switch sender {
@@ -35,8 +30,8 @@ class LoginViewController: UIViewController {
         default:
             if checkUser(
                 in: users,
-                with: userNameTextField.text ?? "",
-                and: passwordTextField.text ?? ""
+                login: userNameTextField.text ?? "",
+                pass: passwordTextField.text ?? ""
             ) {
                 self.performSegue(withIdentifier: "login", sender: self)
             } else {
@@ -44,17 +39,15 @@ class LoginViewController: UIViewController {
             }
         }
         
+        
     }
     
 
 }
 
 
+// MARK: - Private Methods
 extension LoginViewController {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
-        self.view.endEditing(true)
-    }
     
     private func showAlert(with title: String, and massage: String) {
         let alert = UIAlertController(title: title, message: massage, preferredStyle: .alert)
@@ -63,9 +56,19 @@ extension LoginViewController {
         present(alert, animated: true)
     }
     
-    private func checkUser(in usersList: [String:String], with login: String, and pass: String) -> Bool {
+    private func checkUser(in usersList: [String:String], login: String, pass: String) -> Bool {
         guard let currentUserPass = usersList[login] else { return false }
         return currentUserPass == pass ? true : false
+    }
+    
+}
+
+// MARK: - Override methods
+extension LoginViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        self.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,5 +76,10 @@ extension LoginViewController {
             return
         }
         welcomeVC.userNameIs = userNameTextField.text
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        passwordTextField.text = ""
+        dismiss(animated: true)
     }
 }
