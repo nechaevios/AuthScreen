@@ -35,6 +35,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qp9-Rz-iVB"/>
+                                            <segue destination="DPK-02-KS7" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="t1U-hl-vor"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-iz-5VR">
@@ -79,18 +80,49 @@
             </objects>
             <point key="canvasLocation" x="18.399999999999999" y="79.610194902548727"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="w1N-3I-LDf">
             <objects>
-                <viewController id="DPK-02-KS7" sceneMemberID="viewController">
+                <viewController id="DPK-02-KS7" customClass="WelcomeViewController" customModule="AuthScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZUs-Pa-KAf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="vSI-D3-YtG">
+                                <rect key="frame" x="114.5" y="261.5" width="146" height="144.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODO-r7-14S">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNR-D2-wQJ">
+                                        <rect key="frame" x="32" y="102.5" width="82" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Log out"/>
+                                        <connections>
+                                            <action selector="logOutPressed" destination="lnY-BN-gOD" eventType="touchUpInside" id="yvL-0l-zuC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9yk-K0-hgA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vSI-D3-YtG" firstAttribute="centerX" secondItem="ZUs-Pa-KAf" secondAttribute="centerX" id="34k-bp-7dh"/>
+                            <constraint firstItem="vSI-D3-YtG" firstAttribute="centerY" secondItem="ZUs-Pa-KAf" secondAttribute="centerY" id="Ia1-Mp-gJb"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="f13-Qf-CrD"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="DNR-D2-wQJ" id="set-j6-E4Y"/>
+                        <outlet property="welcomeLabel" destination="ODO-r7-14S" id="F17-JR-rw4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsj-LE-jdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lnY-BN-gOD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="854" y="80"/>
         </scene>

@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
                 with: userNameTextField.text ?? "",
                 and: passwordTextField.text ?? ""
             ) {
-                showAlert(with: "Hooray", and: "Your can log in")
+                self.performSegue(withIdentifier: "login", sender: self)
             } else {
                 showAlert(with: "Invalid Login or Password", and: "Please try again")
             }
@@ -66,5 +66,12 @@ extension LoginViewController {
     private func checkUser(in usersList: [String:String], with login: String, and pass: String) -> Bool {
         guard let currentUserPass = usersList[login] else { return false }
         return currentUserPass == pass ? true : false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else {
+            return
+        }
+        welcomeVC.userNameIs = userNameTextField.text
     }
 }
