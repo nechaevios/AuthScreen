@@ -25,7 +25,6 @@ class WelcomeViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1.2,y: 1.3)
         
         view.layer.insertSublayer(gradientLayer, at: 0)
-        //view.layer.addSublayer(gradientLayer)
         
         welcomeLabel.text = "Welcome, " + userNameIs + "!"
     }
