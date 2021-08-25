@@ -11,8 +11,8 @@ let users = ["User":"Pass", "User2":"Pass2", "123":"123"]
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var userNameAlert: UIButton!
-    @IBOutlet weak var passwordAlert: UIButton!
+    @IBOutlet weak var nameAlertButton: UIButton!
+    @IBOutlet weak var passwordAlertButton: UIButton!
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -34,9 +34,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         switch sender {
-        case userNameAlert:
+        case nameAlertButton:
             showAlert(with: "Oops\(emoji)", and: "Your username is User")
-        case passwordAlert:
+        case passwordAlertButton:
             showAlert(with: "Oops\(emoji)", and: "Your password is Pass")
         default:
             if checkUser(
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 login: userNameTextField.text ?? "",
                 pass: passwordTextField.text ?? ""
             ) {
-                self.performSegue(withIdentifier: "login", sender: self)
+                performSegue(withIdentifier: "login", sender: self)
             } else {
                 passwordTextField.text = ""
                 showAlert(with: "Invalid Login or Password", and: "Please try again")
@@ -85,10 +85,8 @@ extension LoginViewController {
         switch textField {
         case userNameTextField:
             passwordTextField.becomeFirstResponder()
-        case passwordTextField:
-            logInButton.sendActions(for: .touchUpInside)
         default:
-            textField.resignFirstResponder()
+            logInButton.sendActions(for: .touchUpInside)
         }
         return true
     }

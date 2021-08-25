@@ -70,9 +70,9 @@
                     </view>
                     <connections>
                         <outlet property="logInButton" destination="ZLb-kk-cT1" id="fwc-eb-hsb"/>
-                        <outlet property="passwordAlert" destination="HZ1-aC-0SM" id="HJd-3O-ELR"/>
+                        <outlet property="nameAlertButton" destination="21Q-ai-ZEW" id="PM7-d3-vSF"/>
+                        <outlet property="passwordAlertButton" destination="HZ1-aC-0SM" id="gNv-uy-yk9"/>
                         <outlet property="passwordTextField" destination="Rrh-lf-UK0" id="Yup-GX-n7b"/>
-                        <outlet property="userNameAlert" destination="21Q-ai-ZEW" id="9LL-JX-aI2"/>
                         <outlet property="userNameTextField" destination="o4k-zI-HY7" id="3Rt-N0-IUQ"/>
                     </connections>
                 </viewController>
