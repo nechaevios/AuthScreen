@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [ UIColor.yellow.cgColor, UIColor.green.cgColor]
+        gradientLayer.colors = [ UIColor.systemPink.cgColor, UIColor.blue.cgColor]
         gradientLayer.frame = view.frame
         
         gradientLayer.startPoint = CGPoint(x: 0.0,y: 0.0)
@@ -26,6 +26,7 @@ class WelcomeViewController: UIViewController {
         
         view.layer.insertSublayer(gradientLayer, at: 0)
         
+        welcomeLabel.textColor = .white
         welcomeLabel.text = "Welcome, " + userNameIs + "!"
     }
     
