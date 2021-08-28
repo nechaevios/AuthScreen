@@ -28,6 +28,8 @@ class WelcomeViewController: UIViewController {
         
         welcomeLabel.textColor = .white
         welcomeLabel.text = "Welcome, " + userNameIs + "!"
+        
+        logOutButton.tintColor = .white
     }
     
 }
