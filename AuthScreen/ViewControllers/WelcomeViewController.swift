@@ -12,7 +12,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
     
-    var userNameIs: String!
+    var userData: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
         
         welcomeLabel.textColor = .white
-        welcomeLabel.text = "Welcome, " + userNameIs + "!"
+        welcomeLabel.text = "Welcome, \(userData.person.firstName)!"
         
         logOutButton.tintColor = .white
     }

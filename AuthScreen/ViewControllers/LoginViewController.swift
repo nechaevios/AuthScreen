@@ -19,8 +19,19 @@ class LoginViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userNameIs = user
+        let userData = User.getUser()
+        let tabBarControllers = segue.destination as! UITabBarController
+        guard let viewControllers = tabBarControllers.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.userData = userData
+            }
+            else if let navigationVC = viewController as? UINavigationController {
+                let aboutUserVC = navigationVC.topViewController as! AboutMeViewController
+                aboutUserVC.userData = userData
+            }
+        }
     }
     
     // MARK: - IBActions
@@ -36,6 +47,7 @@ class LoginViewController: UIViewController {
                 with: "Invalid login or password",
                 and: "Please, enter correct login and password"
             )
+            passwordTextField.text = ""
         }
     }
     
