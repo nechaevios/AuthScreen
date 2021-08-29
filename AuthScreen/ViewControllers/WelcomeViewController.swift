@@ -8,7 +8,8 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
+    // MARK: - IB Outlets
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
     
@@ -31,5 +32,4 @@ class WelcomeViewController: UIViewController {
         
         logOutButton.tintColor = .white
     }
-    
 }

@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let userData = User.getUser()
         let tabBarControllers = segue.destination as! UITabBarController
+        
         guard let viewControllers = tabBarControllers.viewControllers else { return }
         
         for viewController in viewControllers {
@@ -30,7 +31,6 @@ class LoginViewController: UIViewController {
             else if let navigationVC = viewController as? UINavigationController {
                 let aboutUserVC = navigationVC.topViewController as! AboutMeViewController
                 aboutUserVC.userData = userData
-                
             }
         }
     }

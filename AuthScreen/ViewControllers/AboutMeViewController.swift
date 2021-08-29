@@ -9,6 +9,7 @@ import UIKit
 
 class AboutMeViewController: UIViewController {
     
+    // MARK: - IB Outlets
     @IBOutlet weak var birthDateLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -17,7 +18,7 @@ class AboutMeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = "\(userData.person.firstName) \(userData.person.lastName)"
         
         birthDateLabel.text = userData.person.birthDate
@@ -28,11 +29,15 @@ class AboutMeViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let navigationVC = segue.destination as? UINavigationController {
-            let moreInfoVC = navigationVC.topViewController as! MoreInfoViewController
-            moreInfoVC.moreInfoData = userData.person.about
-            moreInfoVC.introData = userData.person.intro
+            
+            if let moreInfoVC = navigationVC.topViewController as? MoreInfoViewController {
+                
+                moreInfoVC.moreInfoData = userData.person.about
+                moreInfoVC.introData = userData.person.intro
+                
+            } else if let memeVC = navigationVC.topViewController as? MemesViewController {
+                memeVC.memes = userData.person.images
+            }
         }
-        
     }
-    
 }

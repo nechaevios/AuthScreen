@@ -22,11 +22,7 @@ struct User {
                 city: "Saint-Petersburg",
                 intro: "A long time ago in a galaxy far, far away...",
                 about: "Yoda was a legendary Jedi Master and stronger than most in his connection with the Force. Small in size but wise and powerful, he trained Jedi for over 800 years, playing integral roles in the Clone Wars, the instruction of Luke Skywalker, and unlocking the path to immortality",
-                tagline: [
-                    "Чистый кот",
-                    "У самурая нет цели, есть только путь",
-                    "Ты не ты, когда за тобой бегут менты (с) Джейсон Стэтхем"
-                ]
+                images: ["1.jpg", "2.png"]
             )
         )
     }
@@ -40,5 +36,5 @@ struct PersonData {
     let city: String
     let intro: String
     let about: String
-    let tagline: [String]
+    let images: [String]
 }

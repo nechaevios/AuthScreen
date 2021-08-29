@@ -8,7 +8,7 @@
 import UIKit
 
 class MoreInfoViewController: UIViewController {
-
+    // MARK: - IB Outlets
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var introLabel: UILabel!
     
@@ -21,6 +21,7 @@ class MoreInfoViewController: UIViewController {
         introLabel.text = "\(introData)"
     }
     
+    // MARK: - IBActions
     @IBAction func backButtonTapped (_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
