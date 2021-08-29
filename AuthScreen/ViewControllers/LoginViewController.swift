@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
             else if let navigationVC = viewController as? UINavigationController {
                 let aboutUserVC = navigationVC.topViewController as! AboutMeViewController
                 aboutUserVC.userData = userData
+                
             }
         }
     }

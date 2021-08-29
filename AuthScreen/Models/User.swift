@@ -17,11 +17,11 @@ struct User {
             person: PersonData(
                 firstName: "Sergey",
                 lastName: "Nechaev",
-                birthDate: "08.05.1989",
+                birthDate: "01.00.0100",
                 age: 32,
                 city: "Saint-Petersburg",
                 intro: "A long time ago in a galaxy far, far away...",
-                about: "В течении последних 1.5 лет я наблюдал как заканчивает существование проект, которому я посвятил 4 года своих сил и нервов. В это же время я наблюдал как разработчик, нанятый мной для реализации торговых алгоритмов, прокачивает свои скилы. Это натолкнуло меня на мысль, что мне стоит попробовать изучить ЯП. Весомым аргументом пойти изучать swift был отзыв знакомой балерины, которая училась у вас на одном из прошлых потоков хД",
+                about: "Yoda was a legendary Jedi Master and stronger than most in his connection with the Force. Small in size but wise and powerful, he trained Jedi for over 800 years, playing integral roles in the Clone Wars, the instruction of Luke Skywalker, and unlocking the path to immortality",
                 tagline: [
                     "Чистый кот",
                     "У самурая нет цели, есть только путь",

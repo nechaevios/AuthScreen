@@ -17,14 +17,22 @@ class AboutMeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let fullName = userData.person.firstName + " " + userData.person.lastName
-        navigationItem.title = fullName
+
+        navigationItem.title = "\(userData.person.firstName) \(userData.person.lastName)"
         
         birthDateLabel.text = userData.person.birthDate
         ageLabel.text = String(userData.person.age)
         cityLabel.text = userData.person.city
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationVC = segue.destination as? UINavigationController {
+            let moreInfoVC = navigationVC.topViewController as! MoreInfoViewController
+            moreInfoVC.moreInfoData = userData.person.about
+            moreInfoVC.introData = userData.person.intro
+        }
         
     }
-
+    
 }
